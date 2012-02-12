@@ -91,9 +91,9 @@ double gamma (double n)
   // n >> 0 である必要がある為、ある程度大きくする
   // gamma(x+1) == x * gamma (x) より
   if (n == 0) {
-    return 1;
+		fprintf (stderr, "Error! divided by Zero!\n");
+		exit (0);
   }
-  if (n <= 5) {
     return gamma (n+1) / n;
   }
   return exp (log_gamma (n));
