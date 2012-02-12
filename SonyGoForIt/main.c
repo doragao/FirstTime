@@ -11,7 +11,7 @@
  *   log(gamma(n)) = log (n) * (n - 0.5) - n + log(2*PI)*0.5 +
  *                   sum(i=1...){ B(2n) / (2i * (2i-1) * x^(2i-1) };
  *
- *   ここで、B(i)はBernouilli数であり、
+ *   ここで、B(i)はBernoulli数であり、
  *
  *   B(0) = 1
  *   B(n) = -1/(n+1) * sum(i=0:n-1){Combination(n+1,i) * B(i)}
@@ -50,7 +50,7 @@ long long int combi (int n, int r)
   return sum;
 }
 
-double Bernouilli (int n)
+double Bernoulli (int n)
 {
 
   int i;
@@ -91,8 +91,8 @@ double gamma (double n)
   // n >> 0 である必要がある為、ある程度大きくする
   // gamma(x+1) == x * gamma (x) より
   if (n == 0) {
-		fprintf (stderr, "Error! divided by Zero!\n");
-		exit (0);
+    fprintf (stderr, "Error! divided by Zero!\n");
+    exit (0);
   }
     return gamma (n+1) / n;
   }
