@@ -1,3 +1,33 @@
+/***
+ *
+ * 120212 19:22
+ *
+ * Sony GO FOR IT 問題2(http://www.sony.co.jp/SonyInfo/Jobs/newgrads/sus/q02.html)
+ * 
+ * 解法のポイント: 
+ *   実数の階乗 fact(n) = gamma (n+1) を利用
+ *   近似式は 
+ *
+ *   log(gamma(n)) = log (n) * (n - 0.5) - n + log(2*PI)*0.5 +
+ *                   sum(i=1...){ B(2n) / (2i * (2i-1) * x^(2i-1) };
+ *
+ *   ここで、B(i)はBernouilli数であり、
+ *
+ *   B(0) = 1
+ *   B(n) = -1/(n+1) * sum(i=0:n-1){Combination(n+1,i) * B(i)}
+ *
+ *   となる。
+ *   今回は i = 20 までで近似値を取っている
+ *
+ *   ただし、 この近似は n >> 0 である必要があるため
+ *   gamma (n+1) = n * gamma (n) 
+ *   を利用して、n が十分大きくない場合は (今回はn < 5 の時)
+ *   gamma (n) = gamma (n+1)/n  (n != 0)
+ *   として、 n の値を大きくしてから近似値を計算している
+ ***/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
